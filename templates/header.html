@@ -52,17 +52,38 @@
                 Ru <span>&#9660;</span>
             </span>
             <div class="navigation_dropdown lang_dropdown">
-                <ul>
-                    <li>
-                        <a href="">RU</a>
-                    </li>
-                    <li>
-                        <a href="">EN</a>
-                    </li>
-                    <li>
-                        <a href="">UZ</a>
-                    </li>
-                </ul>
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.get_full_path}}" />
+                    <ul class="nav navbar-nav navbar-right language menu">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <li>
+                                <button type="submit"
+                                        name="language"
+                                        value="{{ language.code }}"
+                                        class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}">
+                                    {{ language.name_local }}
+                                </button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </form>
+
+
+
+{#                <ul>#}
+{#                    {% get_current_language as LANGUAGE_CODE %}#}
+{#                    {% get_available_languages as LANGUAGES %}#}
+{#                    {% get_language_info_list for LANGUAGES as languages %}#}
+{#                    {% for language in languages %}#}
+{#                        <li>#}
+{#                            <a href="/{{ language.code }}/">{{ language.name_local }}</a>#}
+{#                        </li>#}
+{#                    {% endfor %}#}
+{#                </ul>#}
             </div>
         </li>
     </ul>
