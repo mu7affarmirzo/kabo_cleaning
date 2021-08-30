@@ -47,18 +47,21 @@
         <li class="navigation_items">
             <a href="{% url 'pagesstatic:contacts' %}" class="navigation_link">Контакты</a>
         </li>
-        <li class="navigation_items">
-            <span href="" class="navigation_link lang_link">
-                Ru <span>&#9660;</span>
-            </span>
-            <div class="navigation_dropdown lang_dropdown">
-                <form action="{% url 'set_language' %}" method="post">
-                    {% csrf_token %}
+
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+
+            <li class="navigation_items">
+                <span href="" class="navigation_link lang_link">
+                    {{ LANGUAGE_CODE }} <span>&#9660;</span>
+                </span>
+                <div class="navigation_dropdown lang_dropdown">
                     <input name="next" type="hidden" value="{{ request.get_full_path}}" />
                     <ul class="nav navbar-nav navbar-right language menu">
-                        {% get_current_language as LANGUAGE_CODE %}
-                        {% get_available_languages as LANGUAGES %}
-                        {% get_language_info_list for LANGUAGES as languages %}
+
                         {% for language in languages %}
                             <li>
                                 <button type="submit"
@@ -70,7 +73,9 @@
                             </li>
                         {% endfor %}
                     </ul>
-                </form>
+                </div>
+            </li>
+        </form>
 
 
 
@@ -84,8 +89,7 @@
 {#                        </li>#}
 {#                    {% endfor %}#}
 {#                </ul>#}
-            </div>
-        </li>
+
     </ul>
 </nav>
 <!-- responsive mobile menu -->
