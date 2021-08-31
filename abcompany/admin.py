@@ -5,11 +5,12 @@ from modeltranslation.admin import TranslationAdmin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
+# *************************PageTitleModel*************************
 class TitleCustomAdmin(admin.ModelAdmin):
-    list_display = ('title_de', 'title_en', 'title_ru')
+    list_display = ('title_he', 'title_en', 'title_ru')
 
     class Meta:
-        verbose_name = "ratings"
+        verbose_name = "Page Title"
 
 
 class TitleAdmin(TitleCustomAdmin, TranslationAdmin):
@@ -17,4 +18,33 @@ class TitleAdmin(TitleCustomAdmin, TranslationAdmin):
 
 
 admin.site.register(PageTitleModel, TitleAdmin)
-# *************************PageTitleModel*************************
+
+
+# *************************StatisticsModel*************************
+class StatisticsCustomAdmin(admin.ModelAdmin):
+    list_display = ('title_he', 'title_en', 'title_ru')
+
+    class Meta:
+        verbose_name = "Statistics"
+
+
+class StatisticsAdmin(StatisticsCustomAdmin, TranslationAdmin):
+    pass
+
+
+admin.site.register(StatisticsModel, StatisticsAdmin)
+
+
+# *************************MissionModel*************************
+class MissionCustomAdmin(admin.ModelAdmin):
+    list_display = ('title_he', 'title_en', 'title_ru')
+
+    class Meta:
+        verbose_name = "Missions"
+
+
+class MissionAdmin(MissionCustomAdmin, TranslationAdmin):
+    pass
+
+
+admin.site.register(MissionModel, MissionAdmin)

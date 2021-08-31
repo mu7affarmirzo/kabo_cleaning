@@ -81,33 +81,34 @@
                 <li class="navigation_items">
                     <a href="{% url 'pagesstatic:contacts' %}" class="navigation_link">Контакты</a>
                 </li>
-                <li class="navigation_items">
-                    <span href="" class="navigation_link lang_link">
-                        Ru <span>&#9660;</span>
-                    </span>
-                    <div class="navigation_dropdown lang_dropdown">
-                        <ul>
-                            <li class="nav-item d-flex">
-                                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                                    <input name="next" type="hidden" value="{{ redirect_to }}">
-                                    <select name="language" onchange="this.form.submit()" class="lang-select">
-                                        {% get_current_language as LANGUAGE_CODE %}
-                                        {% get_available_languages as LANGUAGES %}
-                                        {% get_language_info_list for LANGUAGES as languages %}
-    
-                                        {% for language in languages %}
-                                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
-                                                    selected{% endif %}>
-                                                {{ language.name_local }} ({{ language.code }})
-                                            </option>
-                                        {% endfor %}
-    
-                                    </select>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+
+                    <li class="navigation_items">
+                        <span href="" class="navigation_link lang_link">
+                            {{ LANGUAGE_CODE }} <span>&#9660;</span>
+                        </span>
+                        <div class="navigation_dropdown lang_dropdown">
+                            <input name="next" type="hidden" value="{{ request.get_full_path}}" />
+                            <ul class="nav navbar-nav navbar-right language menu">
+
+                                {% for language in languages %}
+                                    <li>
+                                        <button type="submit"
+                                                name="language"
+                                                value="{{ language.code }}"
+                                                class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}">
+                                            {{ language.name_local }}
+                                        </button>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                </form>
             </ul>
         </nav>
         <!-- responsive mobile menu -->

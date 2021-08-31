@@ -7,10 +7,10 @@
         <header class="header_promo other_pages_header">
             <div class="header_promo_background" style="background-image: url('{% static 'img/promo.jpg' %}')"></div>
             <div class="video_overlay"></div>
-            {% for vid in video %}
+            {% for prom in promo %}
                 <div class="header_promo_video">
                     <video autoplay loop muted playsinline webkit-playsinline poster="#" preload="none">
-                        <source src="{{vid.page_promo.url}}" type="video/mp4"/>
+                        <source src="{{prom.page_promo.url}}" type="video/mp4"/>
                     </video>
                 </div>
                 <div class="header_promo_title">
@@ -21,7 +21,7 @@
                         </li>
                         <li>
                             <span>
-                                {{vid.title}}
+                                {{prom.title}}
                             </span>
                         </li>
                     </ul>
@@ -66,30 +66,16 @@
                 <div class="statistics">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-3">
-                                <div class="stat_items first_animation invisible">
-                                    <span>979</span>
-                                    <small>Довольных клиентов</small>
+
+                            {% for statistic in statistics %}
+                                <div class="col-md-3">
+                                    <div class="stat_items first_animation invisible">
+                                        <span>{{ statistic.numbers }}</span>
+                                        <small>{{statistic.title}}</small>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="stat_items third_animation invisible">
-                                    <span>10</span>
-                                    <small>Работающих бригад</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="stat_items fourth_animation invisible">
-                                    <span>7/24</span>
-                                    <small>Работаем 7 дней в неделю</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="stat_items second_animation invisible">
-                                    <span>67</span>
-                                    <small>Обслуживаемых объектов</small>
-                                </div>
-                            </div>
+                            {% endfor %}
+
                         </div>
                     </div>
                 </div>

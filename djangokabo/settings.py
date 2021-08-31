@@ -119,11 +119,11 @@ gettext = lambda s: s
 
 LANGUAGES = (
     ('en', gettext('English')),
-    ('de', gettext('Deutsche')),
+    ('he', gettext('Hebrew')),
     ('ru', gettext('Russian')),
 )
 
-MODELTRANSLATION_LANGUAGES = ('en', 'de', 'ru')
+MODELTRANSLATION_LANGUAGES = ('en', 'he', 'ru')
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('ru', 'en')
 
 LOCALE_PATHS = [

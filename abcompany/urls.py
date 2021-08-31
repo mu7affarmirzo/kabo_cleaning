@@ -4,7 +4,7 @@ from django.urls import path
 app_name = 'abcompany'
 
 urlpatterns = [
-    path('title/', title, name='title'),
+    path('about-us/', aboutUs, name='about-us'),
     # path('home', HomeView.as_view(), name='home'),
     # path('contacts', ContactsView.as_view(), name='contacts'),
     # path('portfolio', PortfolioView.as_view(), name='portfolio'),

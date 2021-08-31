@@ -5,7 +5,7 @@ from modeltranslation.admin import TranslationAdmin
 
 # this is for ratingData
 class LeadersCustomAdmin(admin.ModelAdmin):
-    list_display = ('name_en', 'name_de', 'name_ru')
+    list_display = ('name_en', 'name_he', 'name_ru')
     class Meta:
         verbose_name = "Leaders"
 class LeadersAdmin(LeadersCustomAdmin, TranslationAdmin):
