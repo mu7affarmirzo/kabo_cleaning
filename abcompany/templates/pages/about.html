@@ -177,45 +177,42 @@
                     <small class="line_after"> ЦЕЛИ И МИССИЯ </small>
                 </div>
                 <ul class="divisions">
+
                     <li>
                         <div class="divisions_item first_animation invisible">
                             <div class="divisions_item_left">
                                 <img src="{% static 'img/about.jpg' %}" alt="">
                             </div>
                             <div class="divisions_item_right">
-                                <h5 class="company_name long_line_before">Kabo</h5>
-                                <h2>Миссия</h2>
-                                <p>Создавать новые стандарты и тренды. Нести ответственность за развитие
-                                    индустриализации. Изменять традиционные методы ведения бизнеса и принципов
-                                    взаимодействия. Постоянно поднимать эффективность компании ради наших клиентов,
-                                    сотрудников, партнеров и общества.</p>
+                                <h5 class="company_name long_line_before">{{missions.0.header}}</h5>
+                                <h2>{{missions.0.title}}</h2>
+                                <p>{{missions.0.text}}</p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="divisions_item second_animation invisible">
                             <div class="divisions_item_right text_right">
-                                <h5 class="company_name long_line_after">Kabo</h5>
-                                <h2>Видение</h2>
-                                <p>К 2025 году стать географически диверсифицированным конгломератом с активной
-                                    клиентской базой в 20 странах мира. Стать символом индустриализации Узбекистана,
-                                    который повысит ценности для своих клиентов, акционеров и партнёров</p>
+                                <h5 class="company_name long_line_after">{{missions.1.header}}</h5>
+                                <h2>{{missions.1.title}}</h2>
+                                <p>{{missions.1.text}}</p>
                             </div>
                             <div class="divisions_item_left rect_before">
                                 <img src="{% static 'img/about.jpg' %}" alt="">
                             </div>
                         </div>
                     </li>
+
                     <li>
                         <div class="divisions_item first_animation invisible">
                             <div class="divisions_item_left">
                                 <img src="{% static 'img/about.jpg' %}" alt="">
                             </div>
                             <div class="divisions_item_right">
-                                <h5 class="company_name long_line_before">Kabo</h5>
-                                <h2>Ценности</h2>
+                                <h5 class="company_name long_line_before">{{missions.2.header}}</h5>
+                                <h2>{{missions.2.title}}</h2>
                                 <p>
-                                    Ориентация на клиента - какой бы не была технологичная база и инновации, мы строим их вокруг клиента, а не подбираем клиента под нее.
+                                    {{missions.2.text}}
                                 </p>
                             </div>
                         </div>
