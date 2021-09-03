@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load mathfilters %}
 {% load static %}
 {% load i18n %}
 
@@ -178,45 +179,64 @@
                 </div>
                 <ul class="divisions">
 
-                    <li>
-                        <div class="divisions_item first_animation invisible">
-                            <div class="divisions_item_left">
-                                <img src="{% static 'img/about.jpg' %}" alt="">
-                            </div>
-                            <div class="divisions_item_right">
-                                <h5 class="company_name long_line_before">{{missions.0.header}}</h5>
-                                <h2>{{missions.0.title}}</h2>
-                                <p>{{missions.0.text}}</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="divisions_item second_animation invisible">
-                            <div class="divisions_item_right text_right">
-                                <h5 class="company_name long_line_after">{{missions.1.header}}</h5>
-                                <h2>{{missions.1.title}}</h2>
-                                <p>{{missions.1.text}}</p>
-                            </div>
-                            <div class="divisions_item_left rect_before">
-                                <img src="{% static 'img/about.jpg' %}" alt="">
-                            </div>
-                        </div>
-                    </li>
 
-                    <li>
+                    {% for mission in missions %}
+                    {% if forloop.counter0|mod:2 == 0 %}
+                        <li>
                         <div class="divisions_item first_animation invisible">
                             <div class="divisions_item_left">
-                                <img src="{% static 'img/about.jpg' %}" alt="">
+                                <img src="{{mission.image.url}}" alt="">
                             </div>
                             <div class="divisions_item_right">
-                                <h5 class="company_name long_line_before">{{missions.2.header}}</h5>
-                                <h2>{{missions.2.title}}</h2>
-                                <p>
-                                    {{missions.2.text}}
-                                </p>
+                                <h5 class="company_name long_line_before">{{mission.header}}</h5>
+                                <h2>{{mission.title}}</h2>
+                                <p>{{mission.text}}</p>
                             </div>
                         </div>
                     </li>
+                    {% else %}
+                        <li>
+                            <div class="divisions_item second_animation invisible">
+                                <div class="divisions_item_right text_right">
+                                    <h5 class="company_name long_line_after">{{mission.header}}</h5>
+                                    <h2>{{mission.title}}</h2>
+                                    <p>{{mission.text}}</p>
+                                </div>
+                                <div class="divisions_item_left rect_before">
+                                    <img src="{{mission.image.url}}" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    {% endif%}
+                    {% endfor %}
+
+<!--                    <li>-->
+<!--                        <div class="divisions_item second_animation invisible">-->
+<!--                            <div class="divisions_item_right text_right">-->
+<!--                                <h5 class="company_name long_line_after">{{missions.1.header}}</h5>-->
+<!--                                <h2>{{missions.1.title}}</h2>-->
+<!--                                <p>{{missions.1.text}}</p>-->
+<!--                            </div>-->
+<!--                            <div class="divisions_item_left rect_before">-->
+<!--                                <img src="{% static 'img/about.jpg' %}" alt="">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </li>-->
+
+<!--                    <li>-->
+<!--                        <div class="divisions_item first_animation invisible">-->
+<!--                            <div class="divisions_item_left">-->
+<!--                                <img src="{% static 'img/about.jpg' %}" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="divisions_item_right">-->
+<!--                                <h5 class="company_name long_line_before">{{missions.2.header}}</h5>-->
+<!--                                <h2>{{missions.2.title}}</h2>-->
+<!--                                <p>-->
+<!--                                    {{missions.2.text}}-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </li>-->
                 </ul>
                 {% for mission in company_missions %}
                     <div class="mission_video">
