@@ -1496,10 +1496,12 @@ p {
         }
         img {
             width: 100%;
+            @extend %transition_style;
         }
     }
     &_img {
         position: relative;
+        overflow: hidden;
         &::after {
             position: absolute;
             bottom: 0;
@@ -1992,6 +1994,19 @@ p {
             top: 55px;
         }
     }
+
+    .service_time {
+        &::after {
+            background: url(../img/time-i-r.svg) center no-repeat;
+        }
+    }
+
+    .service_type {
+        &::after {
+            background: url(../img/service-i-r.svg) center no-repeat;
+        }
+    }
+
     p {
         color: #adadad;
         font-size: 0.9em;
@@ -2043,6 +2058,13 @@ p {
                 opacity: 1;
             }
         }
+    }
+}
+
+.partners{
+    background: $bgColor;
+    a:hover img{
+        transform: scale(1.1);
     }
 }
 

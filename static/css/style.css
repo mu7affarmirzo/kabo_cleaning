@@ -34,7 +34,7 @@ p {
   line-height: 150%;
 }
 
-.navigation, .navigation_items::before, .navigation_dropdown, .navigation_dropdown li a, .navigation .lang_link span, .showOverlay, .mobile_menu, .active-btn, .active-btn::before, .services_block_in a, .services_block_in a::before, .services_block_in a h4, .news_image img, .footer_links a, .social_icons li, .projects_img, .projects_img img, .projects_img::before, .work_navi a {
+.navigation, .navigation_items::before, .navigation_dropdown, .navigation_dropdown li a, .navigation .lang_link span, .showOverlay, .mobile_menu, .active-btn, .active-btn::before, .services_block_in a, .services_block_in a::before, .services_block_in a h4, .news_image img, .footer_links a, .social_icons li, .team_items img, .projects_img, .projects_img img, .projects_img::before, .work_navi a {
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
@@ -1690,6 +1690,7 @@ p {
 
 .team_img {
   position: relative;
+  overflow: hidden;
 }
 
 .team_img::after {
@@ -2220,6 +2221,14 @@ p {
   top: 55px;
 }
 
+.contacts .service_time::after {
+  background: url(../img/time-i-r.svg) center no-repeat;
+}
+
+.contacts .service_type::after {
+  background: url(../img/service-i-r.svg) center no-repeat;
+}
+
 .contacts p {
   color: #adadad;
   font-size: 0.9em;
@@ -2278,6 +2287,15 @@ p {
 
 .contacts .checkbox input:checked:before {
   opacity: 1;
+}
+
+.partners {
+  background: #2f2f2f;
+}
+
+.partners a:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media only screen and (max-width: 1200px) {

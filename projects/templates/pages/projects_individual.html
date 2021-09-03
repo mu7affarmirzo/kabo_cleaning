@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+    <header class="header_promo other_pages_header">
+        <div class="header_promo_background" style="background-image: url('{% static 'img/promo.jpg' %}')"></div>
+        <div class="video_overlay"></div>
+        <div class="header_promo_video">
+            <video autoplay loop muted playsinline webkit-playsinline poster="#" preload="none"
+                src="{% static 'promo/promo_header.mp4'%}"></video>
+        </div>
+        <div class="header_promo_title">
+            <h1><span>НАПРАВЛЕНИЯ КОМПАНИИ</span></h1>
+            <ul class="header_promo_breadcrumbs">
+                <li>
+                    <a href="{% url 'pagesstatic:home' %}">Главная</a><i>/</i>
+                </li>
+                <li>
+                    <span>
+                        ПРОЕКТЫ
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="project_individual">
+        <div class="container">
+            <div class="section_content">
+                <div class="project_list">
+
+                    {% for block in blocks %}
+                        {% if forloop.counter0|mod:2 == 0 %}
+                            <div class="project_item project_triangle_before first_animation invisible">
+                                <span class="project_img">
+                                    <img src="{{block.image.url}}" alt="">
+                                </span>
+                                <div class="divisions_item_right">
+                                    <h5 class="company_name long_line_before">{{block.company_name}}</h5>
+                                    <h2>{{block.name}}</h2>
+                                    <p>{{block.text}}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="project_item project_triangle_after second_animation invisible">
+                                <div class="divisions_item_right text_right">
+                                    <h5 class="company_name long_line_after">{{block.company_name}}</h5>
+                                    <h2>{{block.name}}</h2>
+                                    <p>{{block.text}}</p>
+                                </div>
+                                <span class="project_img">
+                                    <img src="{{block.image.url}}" alt="">
+                                </span>
+                            </div>
+                        {% endif %}
+<!--                        <div class="project_item project_triangle_before first_animation invisible">-->
+<!--                            <span class="project_img">-->
+<!--                                <img src="{{block.image.url}}" alt="">-->
+<!--                            </span>-->
+<!--                            <div class="divisions_item_right">-->
+<!--                                <h5 class="company_name long_line_before">{{block.company_name}}</h5>-->
+<!--                                <h2>{{block.name}}</h2>-->
+<!--                                <p>{{block.text}}</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                    {% endfor %}
+
+<!--                    <div class="project_item project_triangle_after second_animation invisible">-->
+<!--                        <div class="divisions_item_right text_right">-->
+<!--                            <h5 class="company_name long_line_after">Kabo</h5>-->
+<!--                            <h2>Видение</h2>-->
+<!--                            <p>К 2025 году стать географически диверсифицированным конгломератом с активной-->
+<!--                                клиентской базой в 20 странах мира. Стать символом индустриализации Узбекистана,-->
+<!--                                который повысит ценности для своих клиентов, акционеров и партнёров</p>-->
+<!--                        </div>-->
+<!--                        <span class="project_img">-->
+<!--                            <img src="data/img/about.jpg" alt="">-->
+<!--                        </span>-->
+<!--                    </div>-->
+<!--                    <div class="project_item project_triangle_before first_animation invisible">-->
+<!--                        <span class="project_img">-->
+<!--                            <img src="data/img/about.jpg" alt="">-->
+<!--                        </span>-->
+<!--                        <div class="divisions_item_right">-->
+<!--                            <h5 class="company_name long_line_before">Kabo</h5>-->
+<!--                            <h2>Видение</h2>-->
+<!--                            <p>К 2025 году стать географически диверсифицированным конгломератом с активной-->
+<!--                                клиентской базой в 20 странах мира. Стать символом индустриализации Узбекистана,-->
+<!--                                который повысит ценности для своих клиентов, акционеров и партнёров</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

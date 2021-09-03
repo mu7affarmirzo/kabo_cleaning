@@ -34,7 +34,7 @@ p {
   line-height: 150%;
 }
 
-.work_navi a, .projects_img::before, .projects_img img, .projects_img, .social_icons li, .footer_links a, .news_image img, .services_block_in a h4, .services_block_in a::before, .services_block_in a, .active-btn::before, .active-btn, .mobile_menu, .showOverlay, .navigation .lang_link span, .navigation_dropdown li a, .navigation_dropdown, .navigation_items::before, .navigation {
+.work_navi a, .projects_img::before, .projects_img img, .projects_img, .team_items img, .social_icons li, .footer_links a, .news_image img, .services_block_in a h4, .services_block_in a::before, .services_block_in a, .active-btn::before, .active-btn, .mobile_menu, .showOverlay, .navigation .lang_link span, .navigation_dropdown li a, .navigation_dropdown, .navigation_items::before, .navigation {
   -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
@@ -1426,6 +1426,7 @@ p {
 }
 .team_img {
   position: relative;
+  overflow: hidden;
 }
 .team_img::after {
   position: absolute;
@@ -1871,6 +1872,12 @@ p {
   background: url(../img/edit-i-r.svg) center no-repeat;
   top: 55px;
 }
+.contacts .service_time::after {
+  background: url(../img/time-i-r.svg) center no-repeat;
+}
+.contacts .service_type::after {
+  background: url(../img/service-i-r.svg) center no-repeat;
+}
 .contacts p {
   color: #adadad;
   font-size: 0.9em;
@@ -1922,6 +1929,13 @@ p {
 }
 .contacts .checkbox input:checked:before {
   opacity: 1;
+}
+
+.partners {
+  background: #2f2f2f;
+}
+.partners a:hover img {
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 1200px) {
