@@ -3,9 +3,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
+from pagesstatic.views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', HomeView.as_view(), name='home'),
     path('stat/', include('pagesstatic.urls', 'pagesstatic')),
     path('about/', include('abcompany.urls', 'about')),
     path('i18n/', include('django.conf.urls.i18n')),

@@ -48,3 +48,33 @@ class MissionAdmin(MissionCustomAdmin, TranslationAdmin):
 
 
 admin.site.register(MissionModel, MissionAdmin)
+
+
+# *************************CompanyMissionModel*************************
+class CMissionCustomAdmin(admin.ModelAdmin):
+    list_display = ('title_he', 'title_en', 'title_ru')
+
+    class Meta:
+        verbose_name = "Company Mission"
+
+
+class CMissionAdmin(CMissionCustomAdmin, TranslationAdmin):
+    pass
+
+
+admin.site.register(CompanyMissionModel, CMissionAdmin)
+
+
+# *************************TeamModel*************************
+class TeamCustomAdmin(admin.ModelAdmin):
+    list_display = ('name_he', 'name_en', 'name_ru')
+
+    class Meta:
+        verbose_name = "Our Team"
+
+
+class TeamAdmin(TeamCustomAdmin, TranslationAdmin):
+    pass
+
+
+admin.site.register(TeamModel, TeamAdmin)

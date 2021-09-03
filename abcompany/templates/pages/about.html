@@ -218,10 +218,13 @@
                         </div>
                     </li>
                 </ul>
-                <div class="mission_video">
-                    <h1 class="text-center">Миссия компании</h1>
-                    <video controls="" poster="{% static 'img/poster.jpg' %}" preload="none" src="{% static 'promo/promo_header.mp4' %}"  onclick="this.play()"></video>
-                </div>
+                {% for mission in company_missions %}
+                    <div class="mission_video">
+                        <h1 class="text-center">{{mission.title}}</h1>
+                        <video controls="" poster="{{mission.imageUrl}}" preload="none" src="{{mission.page_promo.url}}"  onclick="this.play()"></video>
+                    </div>
+                {% endfor %}
+
             </div>
         </div>
     </section>
@@ -233,73 +236,21 @@
                 <small class="line_after"> НАША КОМАНДА </small>
             </div>
             <ul>
-                <li class="team_items">
-                    <div>
-                        <div class="team_img">
-                            <img src="{% static 'img/about.jpg' %}" alt="">
-                        </div>
-                        <div class="team_caption">
-                            <span>John Doe</span>
-                            <small>Управляющий директор ИТ блока</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="team_items">
-                    <div>
-                        <div class="team_img">
-                            <img src="{% static 'img/about.jpg' %}" alt="">
-                        </div>
-                        <div class="team_caption">
-                            <span>John Doe</span>
-                            <small>Управляющий директор ИТ блока</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="team_items">
-                    <div>
-                        <div class="team_img">
-                            <img src="{% static 'img/about.jpg' %}" alt="">
-                        </div>
-                        <div class="team_caption">
-                            <span>John Doe</span>
-                            <small>Управляющий директор ИТ блока</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="team_items">
-                    <div>
 
-                        <div class="team_img">
-                            <img src="{% static 'img/about.jpg' %}" alt="">
+                {% for member in team %}
+                    <li class="team_items">
+                        <div>
+                            <div class="team_img">
+                                <img src="{{member.imageUrl}}" alt="">
+                            </div>
+                            <div class="team_caption">
+                                <span>{{member.name}}</span>
+                                <small>{{member.position}}</small>
+                            </div>
                         </div>
-                        <div class="team_caption">
-                            <span>John Doe</span>
-                            <small>Управляющий директор ИТ блока</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="team_items">
-                    <div>
-                        <div class="team_img">
-                            <img src="{% static 'img/about.jpg' %}" alt="">
-                        </div>
-                        <div class="team_caption">
-                            <span>John Doe</span>
-                            <small>Управляющий директор ИТ блока</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="team_items">
-                    <div>
-                        <div class="team_img">
-                            <img src="{% static 'img/about.jpg' %}" alt="">
-                        </div>
-                        <div class="team_caption">
-                            <span>John Doe</span>
-                            <small>Управляющий директор ИТ блока</small>
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                {% endfor %}
+
             </ul>
         </div>
     </section>

@@ -22,3 +22,18 @@ class MissionTranslationOptions(TranslationOptions):
         'title',
         'text',
     )
+
+
+@register(CompanyMissionModel)
+class CMissionTranslationOptions(TranslationOptions):
+    fields = (
+        'title',
+    )
+
+
+@register(TeamModel)
+class TeamTranslationOptions(TranslationOptions):
+    fields = (
+        'name',
+        'position'
+    )
