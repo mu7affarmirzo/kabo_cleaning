@@ -31,9 +31,7 @@ def news_view(request):
 
     context['news_posts'] = news_posts
 
-    # news = NewsModel.objects.all()
     promo = PageTitleModel.objects.all()[:1]
-    # context['news'] = news
     context['promo'] = promo
     return render(request, 'pages/news.html', context)
 
