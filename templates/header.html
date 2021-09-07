@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <nav class="navigation">
-    <a href="{% url 'pagesstatic:home' %}" class="navigation_logo"><img src="{% static 'img/logo-full.png' %}" alt=""></a>
+    <a href="{% url 'home' %}" class="navigation_logo"><img src="{% static 'img/logo-full.png' %}" alt=""></a>
     <button class="menu_btn">
         <span></span>
         <span></span>
@@ -15,7 +15,7 @@
             <div class="navigation_dropdown">
                 <ul>
                     <li>
-                        <a href="{% url 'pagesstatic:about'%}">О нас</a>
+                        <a href="{% url 'about:about-us'%}">О нас</a>
                     </li>
                     <li>
                         <a href="">Партнеры</a>
@@ -30,17 +30,17 @@
             </div>
         </li>
         <li class="navigation_items">
-            <a href="{% url 'pagesstatic:projects' %}" class="navigation_link">
+            <a href="{% url 'projects:projects' %}" class="navigation_link">
                 Проекты
             </a>
         </li>
         <li class="navigation_items">
-            <a href="{% url 'pagesstatic:portfolio' %}" class="navigation_link">
+            <a href="{% url 'portfolio:portfolio' %}" class="navigation_link">
                 Портфолио
             </a>
         </li>
         <li class="navigation_items">
-            <a href="{% url 'pagesstatic:news' %}" class="navigation_link">
+            <a href="{% url 'news:news' %}" class="navigation_link">
                 Новости
             </a>
         </li>
@@ -86,16 +86,16 @@
             <a href="{% url 'pagesstatic:about' %}" data-toggle="collapse">О компании</a>
             <div id="demo" class="collapse">
                 <div class="collapse_list">
-                    <a href="{% url 'pagesstatic:about' %}">О нас</a>
+                    <a href="{% url 'about:about-us' %}">О нас</a>
                     <a href="">Партнеры</a>
                     <a href="">Карьера</a>
                     <a href="">Загрузки</a>
                 </div>
             </div>
         </li>
-        <li><a href="{% url 'pagesstatic:projects' %}">Проекты</a></li>
-        <li><a href="{% url 'pagesstatic:portfolio' %}">Портфолио</a></li>
-        <li><a href="{% url 'pagesstatic:news' %}">Новости</a></li>
+        <li><a href="{% url 'projects:projects' %}">Проекты</a></li>
+        <li><a href="{% url 'portfolio:portfolio' %}">Портфолио</a></li>
+        <li><a href="{% url 'news:news' %}">Новости</a></li>
         <li><a href="{% url 'pagesstatic:contacts' %}">Контакты</a></li>
     </ul>
     <p>Выбор языка:</p>

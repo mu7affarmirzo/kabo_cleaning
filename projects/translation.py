@@ -5,7 +5,7 @@ from .models import *
 @register(PageTitleModel)
 class TitleTranslationOptions(TranslationOptions):
     fields = (
-        'title',
+        'name',
     )
 
 

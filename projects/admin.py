@@ -21,7 +21,7 @@ admin.site.register(ProjectModel, ProjectAdmin)
 
 # *************************PageTitleModel*************************
 class TitleCustomAdmin(admin.ModelAdmin):
-    list_display = ('title_he', 'title_en', 'title_ru')
+    list_display = ('name_he', 'name_en', 'name_ru')
 
     class Meta:
         verbose_name = "Page Title"

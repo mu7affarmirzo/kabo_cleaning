@@ -36,7 +36,7 @@
 
                     {% for project in projects %}
                         <div class="projects_item first_animation invisible">
-                            <a href="{% url 'projects:projects-individual' '1' %}">
+                            <a href="{% url 'projects:projects-individual' project.id %}">
                                 <span class="projects_img">
                                     <img src="{{project.image.url}}" alt="">
                                 </span>
