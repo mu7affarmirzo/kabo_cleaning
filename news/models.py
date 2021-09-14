@@ -22,6 +22,14 @@ class PageTitleModel(models.Model):
     page_promo = models.FileField(upload_to=upload_location, blank=True, null=True)
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
 
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
+
     def __str__(self):
         return self.name
 

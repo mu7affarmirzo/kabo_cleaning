@@ -6,8 +6,8 @@
 
     <header class="header_promo other_pages_header">
         {% for prom in promo %}
-        <div class="header_promo_background" style="background-image: url('{{prom.image.url}}')"></div>
-        <div class="video_overlay"></div>
+            <div class="header_promo_background" style="background-image: url('{{prom.imageURL}}')"></div>
+            <div class="video_overlay"></div>
             <div class="header_promo_video">
                 <video autoplay loop muted playsinline webkit-playsinline poster="#" preload="none">
                     <source src="{{prom.page_promo.url}}" type="video/mp4"/>
