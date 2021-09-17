@@ -72,30 +72,30 @@
                         </div>
                     </div>
                     <h2 class="contacts_title">Связаться с Нами</h2>
-                    <form action="">
+                    <form action="{% url 'contacts:contacts' %}" method="post">{% csrf_token %}
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="contacts_input name">
-                                    <input name="f-name" id="name" type="text" placeholder="Ваше имя *"
+                                    <input name="full_name" id="name" type="text" placeholder="Ваше имя *"
                                         required="required">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="contacts_input phone">
-                                    <input id="phone" name="f-phone" type="tel" placeholder="Ваш телефон *"
-                                        minlength="17" maxlength="17" required="required">
+                                    <input id="phone" name="phone_number" type="tel" placeholder="Ваш телефон *"
+                                        minlength="10" maxlength="17" required="required">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="contacts_input email">
-                                    <input name="f-email" type="text" placeholder="Ваша почта *" required="required">
+                                    <input name="email" type="text" placeholder="Ваша почта *" required="required">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="contacts_input message">
-                                    <textarea name="f-comment" placeholder="Ваше сообщение (не менее 20 символов) *"
+                                    <textarea name="message" placeholder="Ваше сообщение (не менее 20 символов) *"
                                         minlength="20" required="required"></textarea>
                                 </div>
                             </div>

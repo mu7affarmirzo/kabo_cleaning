@@ -13,6 +13,7 @@ urlpatterns = [
     path('projects/', include('projects.urls', 'projects')),
     path('portfolio/', include('portfolio.urls', 'portfolio')),
     path('news/', include('news.urls', 'news')),
+    path('contacts/', include('contacts.urls', 'contacts')),
     path('i18n/', include('django.conf.urls.i18n')),
 ]
 
@@ -22,6 +23,7 @@ urlpatterns += i18n_patterns(
     path('projects/', include('projects.urls')),
     path('portfolio/', include('portfolio.urls')),
     path('news/', include('news.urls')),
+    path('contacts/', include('contacts.urls')),
 
 )
 

@@ -5,14 +5,10 @@ app_name = 'abcompany'
 
 urlpatterns = [
     path('about-us/', aboutUs, name='about-us'),
-    # path('home', HomeView.as_view(), name='home'),
-    # path('contacts', ContactsView.as_view(), name='contacts'),
-    # path('portfolio', PortfolioView.as_view(), name='portfolio'),
-    # path('projects', ProjectsView.as_view(), name='projects'),
-    # path('news', NewsView.as_view(), name='news'),
-    # path('home', HomeView.as_view(), name='home'),
-    # path('home', HomeView.as_view(), name='home'),
-    # path('home', HomeView.as_view(), name='home'),
-    # path('home', HomeView.as_view(), name='home'),
-    # path('page', about_page, name='about-page'),
+    path('vacancy/', vacancy, name='vacancy'),
+    path('vacancy/<slug>', vacancy_individual, name='vacancy-individual'),
+    path('partners/', partners, name='partners'),
+    path('partners/<slug>', partners_individual, name='partners-individual'),
+    path('cv-send', send_us_cv_view, name='send-cv'),
+    path('downloads/', downloads, name='downloads'),
 ]

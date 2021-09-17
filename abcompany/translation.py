@@ -37,3 +37,31 @@ class TeamTranslationOptions(TranslationOptions):
         'name',
         'position'
     )
+
+
+@register(VacancyModel)
+class VacancyTranslationOptions(TranslationOptions):
+    fields = (
+        'little_description',
+        'position',
+        'description',
+        'requirements',
+    )
+
+
+@register(PartnersModel)
+class PartnersTranslationOptions(TranslationOptions):
+    fields = (
+        'name',
+        'position',
+        'description',
+    )
+
+
+@register(DownloadsModel)
+class DownloadsTranslationOptions(TranslationOptions):
+    fields = (
+        'pre_title',
+        'full_name',
+        'description',
+    )

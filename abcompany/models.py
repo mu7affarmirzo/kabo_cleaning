@@ -23,6 +23,20 @@ def team_upload_location(instance, filename):
     return file_path
 
 
+def vacancy_upload_location(instance, filename):
+    ext = filename.split('.')[-1]
+    file_path = 'files/vacancy/{position}-{filename}'.format(
+                position=str(instance.position), filename='{}.{}'.format(uuid4().hex, ext))
+    return file_path
+
+
+def file_upload_location(instance, filename):
+    ext = filename.split('.')[-1]
+    file_path = 'files/{full_name}-{filename}'.format(
+                full_name=str(instance.full_name), filename='{}.{}'.format(uuid4().hex, ext))
+    return file_path
+
+
 class PageTitleModel(models.Model):
     title = models.CharField(max_length=150, null=True, blank=True)
     page_promo = models.FileField(upload_to=upload_location, blank=True, null=True)
@@ -86,3 +100,93 @@ class TeamModel(models.Model):
 
     def imageUrl(self):
         return self.image.url
+
+
+class PartnersModel(models.Model):
+    name = models.CharField(max_length=150, null=True, blank=True)
+    position = models.CharField(max_length=150, null=True, blank=True)
+    description = RichTextField()
+    image = models.ImageField(upload_to=team_upload_location, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Partners'
+        verbose_name_plural = 'Partners'
+
+    def __str__(self):
+        return self.name
+
+    def imageUrl(self):
+        return self.image.url
+
+
+class VacancyModel(models.Model):
+    little_description = models.CharField(max_length=150, null=True, blank=True)
+    position = models.CharField(max_length=150, null=True, blank=True)
+    description = RichTextField()
+    requirements = models.CharField(max_length=150, null=True, blank=True)
+    image = models.ImageField(upload_to=vacancy_upload_location, blank=True, null=True)
+    slug = models.SlugField(blank=True, unique=True)
+
+    class Meta:
+        verbose_name = 'Vacancy'
+        verbose_name_plural = 'Vacancy'
+
+    def __str__(self):
+        return str(self.position)
+
+    def imageUrl(self):
+        return self.image.url
+
+
+class DownloadsModel(models.Model):
+    pre_title = models.CharField(max_length=150, null=True, blank=True)
+    full_name = models.CharField(max_length=150, null=True, blank=True)
+    description = models.CharField(max_length=150, null=True, blank=True)
+    file = models.FileField(upload_to=file_upload_location, null=True, blank=True)
+    image = models.ImageField(upload_to=file_upload_location, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Download files'
+        verbose_name_plural = 'Download files'
+
+    def __str__(self):
+        return str(self.full_name)
+
+    def fileUrl(self):
+        return self.file.url
+
+    def imageUrl(self):
+        return self.image.url
+
+
+class SendResumeModel(models.Model):
+    full_name = models.CharField(max_length=150, null=True, blank=True)
+    phone_number = models.CharField(max_length=150, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
+    cv = models.FileField(upload_to=file_upload_location, null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Arrived Resume/CVs"
+        verbose_name_plural = "Arrived Resume/CVs"
+
+    def __str__(self):
+        return self.full_name
+
+
+@receiver(post_delete, sender=SendResumeModel)
+def file_submission_delete(sender, instance, **kwargs):
+    instance.cv.delete(False)
+
+
+@receiver(post_delete, sender=VacancyModel)
+def submission_delete(sender, instance, **kwargs):
+    instance.image.delete(False)
+
+
+def pre_save_vacancies_post_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(str(r.randint(1,10000)) + "-" + str(r.randint(1,10000)))
+
+
+pre_save.connect(pre_save_vacancies_post_receiver, sender=VacancyModel)

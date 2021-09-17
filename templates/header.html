@@ -18,10 +18,10 @@
                         <a href="{% url 'about:about-us'%}">О нас</a>
                     </li>
                     <li>
-                        <a href="">Партнеры</a>
+                        <a href="{% url 'about:partners' %}">Партнеры</a>
                     </li>
                     <li>
-                        <a href="">Карьера</a>
+                        <a href="{% url 'about:vacancy' %}">Карьера</a>
                     </li>
                     <li>
                         <a href="">Загрузки</a>
@@ -45,7 +45,7 @@
             </a>
         </li>
         <li class="navigation_items">
-            <a href="{% url 'pagesstatic:contacts' %}" class="navigation_link">Контакты</a>
+            <a href="{% url 'contacts:contacts' %}" class="navigation_link">Контакты</a>
         </li>
 
         <form action="{% url 'set_language' %}" method="post">
